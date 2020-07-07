@@ -1,0 +1,56 @@
+  <div class="container-fluid yellow-bg">
+    <div id="homeDiv">
+      <div id="crave" class="container">
+        <span>You crave.</span> <br>
+        <span>We get it.</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="deliveryBar">
+    <div class="container">
+      <div class="row">
+        <div class="col-1">
+          <a href="">Delivery</a>
+        </div>
+        <div class="col-1">
+          <a href="">Pickup</a>
+        </div>
+        <div class="col-10">
+          <!-- <div id="pipe"></div> -->
+          <a href=""><i class="fas fa-map-marker-alt"></i>New York</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+  <div class="container">
+    <div class="row mt-5">
+      <div *ngFor="let item of infos" class="col-lg-4 col-md-6 col-sm-12">
+        <!-- <mat-card class="example-card" *ngIf="item.name" style="height: 150px !important; border: 1px solid red;"> -->
+          <!-- <div *ngIf="item.app_infos.logo_url">
+            <img mat-card-image class="img-fluid" src={{item.app_infos.logo_url}} alt="Missing image">
+          </div> -->
+          <!-- <mat-card-content >
+            <h1>
+              {{item.name}}
+            </h1>
+            <p *ngIf="item.app_infos.price_range">Price range: ${{item.app_infos.price_range}}</p>
+            <a href="" [routerLink]="['restaurant', item.id]">Vai al ristorante</a>
+          </mat-card-content>
+        </mat-card> -->
+
+        <div class="card" style="width: 18rem; height: 18rem;">
+          <img src="https://raster-static.postmates.com/?url=https%3A%2F%2Fbuyer-static-gcp.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2Ffb2b529f92e3caa43210796e98518c7e.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" *ngIf="item.name">{{item.name}}</h5>
+            <!-- <p class="card-text" *ngIf="item.app_infos.price_range">Price range: ${{item.app_infos.price_range}}</p> -->
+            <a href="" [routerLink]="['restaurant', item.id]">Vai al ristorante</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

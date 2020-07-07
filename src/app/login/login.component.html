@@ -1,0 +1,30 @@
+<div style="margin-top: 5%;"></div>
+
+<h1 class="text-center">Login</h1>
+
+<div class="container">
+  <form class="mt-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="">Email</label>
+        <input formControlName="email" type="email" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.pattern">Email format is invalid</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Password</label>
+        <input formControlName="password" type="password" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters long</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Accedi</button>
+
+  </form>
+</div>

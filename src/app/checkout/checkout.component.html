@@ -1,0 +1,32 @@
+<div style="margin-top: 5%;"></div>
+
+<div class="container">
+
+  <h1>Riepilogo ordine</h1>
+  <div class="row">
+    <div class="col-12">
+      <ul class="list-group">
+        <li class="list-group-item" style="background-color: lightgrey;"><span style="font-size: 20pt;"><b>I
+              tuoi dati:</b></span></li>
+        <li class="list-group-item">
+          <p style="font-size: 15pt;">Nome: <b>{{data.name}}</b></p>
+          <p style="font-size: 15pt;">Cognome: <b>{{data.lastName}}</b></p>
+          <p style="font-size: 15pt;">Indirizzo: <b>{{data.address}}</b></p>
+          <p style="font-size: 15pt;">Carta: <b>{{data.creditCard}}</b></p>
+        </li>
+        <li class="list-group-item" style="background-color: lightgrey;"><span style="font-size: 20pt;"><b>Totale:
+              {{total | currency:"EUR"}}</b></span></li>
+      </ul>
+
+      <div class="text-center mt-3">
+        <button (click)="confirm()" class="btn btn-primary mr-3">Conferma</button>
+        <button [routerLink]="['/cart']" class="btn btn-danger">Annulla</button>
+      </div>
+
+      <div *ngIf="success" class="alert alert-success mt-3" role="alert">
+        Ordine andato a buon fine! Grazie per aver acquistato da noi, ti stiamo reindirizzando alla home...
+      </div>
+
+    </div>
+  </div>
+</div>

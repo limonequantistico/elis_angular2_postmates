@@ -1,0 +1,158 @@
+<!-- <div style="margin-top: 10%;"></div> -->
+
+<div class="container-fluid yellow-bg">
+  <div id="restaurantDiv"
+    style="background-image: url('https://raster-static.postmates.com/?url=com.postmates.img.prod.s3.amazonaws.com%2F1cb86454-1ff3-47f6-bf29-1ff77d4bcc9f%2Forig.jpg&quality=85&w=2000&h=0&mode=auto&format=webp&v=4'); opacity: 1;">
+  </div>
+</div>
+
+<div id="deliveryBar">
+  <div class="container">
+    <div class="row">
+      <div class="col-1">
+        <a href="">Delivery</a>
+      </div>
+      <div class="col-1">
+        <a href="">Pickup</a>
+      </div>
+      <div class="col-1">
+        <!-- <div id="pipe"></div> -->
+        <a href=""><i class="fas fa-map-marker-alt"></i></a>
+      </div>
+
+      <div class="col-3">
+        <mat-form-field appearance="fill">
+          <mat-label>Categories</mat-label>
+          <mat-select>
+            <!--[formControl]="pokemonControl"-->
+            <mat-option>-- None --</mat-option>
+            <mat-optgroup *ngFor="let group of categories" [label]="group.name" [disabled]="group.disabled">
+              <mat-option *ngFor="let item of group.byname_products" [value]="item.title">
+                <!--[value]="item.related_products.title"-->
+                {{item.title}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3">
+
+      </div>
+
+      <div class="col-3">
+        <p>{{cart.length}} elementi nel carrello <button class="btn btn-primary"
+            [routerLink]="['/cart']">Carrello</button></p>
+      </div>
+
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- <div>
+  <div class="pos-sticky2 row " style="margin-left:0px;margin-right:0px; padding: 10px;">
+    <div class="container-fluid col-12"
+      style="margin-top:20px;padding-left: 20%; border-bottom: 1px solid lightgray;">
+
+      <nav class="navbar navbar-expand-lg navbar-light pt-1 ">
+
+        <a href="" style="border: none !important;color: black"><span><b>Delivery</b></span></a>
+        <span></span><span>&emsp;or&emsp;</span>
+        <a href="" style="border: none !important;color: black"><span><b>PickUp</b></span></a>
+        <div class="verticale"></div>
+        <i class="fas fa-map-marker-alt ml-3 mr-1"></i>&emsp;
+        <div class="verticale"></div>
+        <mat-form-field appearance="fill" class="ml-2">
+          <mat-label>Categories</mat-label>
+          <mat-select name="" id="">
+            <mat-optgroup *ngFor="let categoria of categories" label="{{categoria.name}}">
+              <mat-option *ngFor="let product of categoria.byname_products" value="{{product.title}}">
+                {{product.title}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+
+        <button class="ml-5"
+          style="border-radius: 15px; font-size: 12px; border: solid 0.1px;background-color: white;height: 40px;width: 120px;"
+          [routerLink]="['/cart']">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="verticale2"></span>
+
+          <span>&emsp;{{cart.length}} ITEMS</span>
+
+        </button>
+
+      </nav>
+    </div>
+  </div> -->
+
+<!-- <div class="container">
+  <h1 class="text-center">{{infos.app.name}}</h1>
+  <img id="logoRest" src="{{infos.infos.logo_url}}" alt="">
+
+  <h2 class="text-center">{{infos.infos.about}}</h2>
+</div>
+
+<div class="container">
+
+  <div *ngFor="let group of categories">
+    <h1 *ngIf="group.name">{{group.name}}</h1>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between" *ngFor="let item of group.byname_products">
+        {{item.title}} - {{item.reservation_items[0].price | currency:"EUR"}}<button class="btn btn-secondary"
+          (click)="addToCart(item)">Aggiungi al carrello</button></li>
+    </ul>
+  </div> -->
+
+<!-- <div class="row mt-5">
+    <div *ngFor="let item of products" class="col-lg-4 col-md-6 col-sm-12">
+      <mat-card class="example-card" *ngIf="item.name">
+        <div *ngIf="item.app_infos.logo_url">
+            <img mat-card-image class="img-fluid" src={{item.app_infos.logo_url}} alt="Missing image">
+          </div>
+        <mat-card-content>
+          <h1>
+            {{item.name}}
+          </h1>
+          <p *ngIf="item.app_infos.price_range">Price range: ${{item.app_infos.price_range}}</p>
+            <a href="" [routerLink]="['restaurant']">Vai al ristorante</a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div> -->
+
+<div class="container">
+  <mat-tab-group>
+    <mat-tab *ngFor="let category of categories" label="{{category.name}}">
+      <!-- <ul class="list-group">
+        <li *ngFor="let item of category.byname_products" class="list-group-item">{{item.title}}</li>
+      </ul> -->
+
+      <div class="row" style="margin-left:0px;margin-right:0px;">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-4" *ngFor="let item of category.byname_products">
+              <div class="card col-12" style="border:none !important">
+                <div class="card-body">
+                  <img class="img-fluid" src="{{item.remote_picture}}" alt="">
+                  <h1>{{item.title}}</h1>
+                  <h5>{{item.subtitle}}</h5>
+                  <h3>{{item.reservation_items[0].price | currency: "EUR"}}&emsp;<button class="btn btn-primary"
+                      (click)="addToCart(item)">aggiungi</button></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+
+
+
+<a class="mt-5" href="" [routerLink]="['']">Torna alla home</a>
