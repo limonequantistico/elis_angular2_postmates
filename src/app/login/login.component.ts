@@ -59,3 +59,5 @@ export class LoginComponent implements OnInit {
 }
 
 //nome cognome email password conferma password
+
+//GIT TEST
