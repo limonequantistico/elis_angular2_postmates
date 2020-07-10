@@ -24,4 +24,13 @@ export class AjaxService {
    auth(path, obj){
      return this.http.post(this.base + path, obj);
    }
+  /////////////////////////////
+   utentiGet(path){
+     return this.http.get(this.base + path);
+   }
+
+   datiServerPost(path, obj){
+    return this.http.post(this.base + path, obj)
+   }
+
 }
